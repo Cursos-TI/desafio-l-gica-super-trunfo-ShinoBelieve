@@ -5,14 +5,15 @@ int main(){
     printf("Super Trunfo!\n");
     char Estado1[16], Estado2[16];
     char codigo1[4], codigo2[4];
-    char Cidade1[50], Cidade2[50];
+    char Cidade1[50], Cidade2[40];
     int populacao1, populacao2;
     float area1, area2;
     float pib1, pib2;
     int pontos_turisticos1, pontos_turisticos2;
     float Densidade_Populacional1, Densidade_Populacional2;
     float Pib_per_Capita1, Pib_per_Capita2;
-    int escolhaJogador1;
+    int escolhaJogador1; 
+    int escolhaJogador2;
     
 
     //Carta 1
@@ -89,7 +90,7 @@ int main(){
 
     printf("Carta 2\n");
     printf("Estado: %s\n", Estado2);
-    printf("Código: %s\n", codigo1);
+    printf("Código: %s\n", codigo2);
     printf("Cidade: %s\n", Cidade2);
     printf("População: %d\n", populacao2);
     printf("Àrea: %.2f\n", area2);
@@ -98,7 +99,7 @@ int main(){
     printf("Densidade populacional: %f\n", Densidade_Populacional2);
     printf("Pib per Capita: %f\n", Pib_per_Capita2);
 
-    //Comparação das cartas
+    //Menu interativo para o jogador escolher o primeiro atributo a ser comparado
     srand(time(0)); // Inicializa o gerador de números aleatórios
     printf("Escolha qual atributo você deseja comparar: \n");
     printf("1. População\n");
@@ -212,8 +213,8 @@ int main(){
                (escolhaJogador1 == 6 && Pib_per_Capita1 > Pib_per_Capita2)) {
       
         printf("Parabéns você ganhou!\n");
-        printf("%s", &Estado1);
-        printf("%s", &Estado2);
+        printf("%s\n", &Estado1);
+        printf("%s\n", &Estado2);
         printf("%s\n", &Cidade1);
         printf("%s\n", &Cidade2);
         printf("%s\n", &codigo1);
@@ -225,8 +226,8 @@ int main(){
                (escolhaJogador1 == 5 && Densidade_Populacional1 > Densidade_Populacional2) ||
                (escolhaJogador1 == 6 && Pib_per_Capita1 < Pib_per_Capita2)) {
         printf("Você perdeu!\n");
-        printf("%s", &Estado1);
-        printf("%s", &Estado2);
+        printf("%s\n", &Estado1);
+        printf("%s\n", &Estado2);
         printf("%s\n", &Cidade1);
         printf("%s\n", &Cidade2);
         printf("%s\n", &codigo1);
@@ -238,13 +239,166 @@ int main(){
                (escolhaJogador1 == 5 && Densidade_Populacional1 == Densidade_Populacional2) ||
                (escolhaJogador1 == 6 && Pib_per_Capita1 == Pib_per_Capita2)) {
         printf("Empate!\n");
-        printf("%s", &Estado1);
-        printf("%s", &Estado2);
+        printf("%s\n", &Estado1);
+        printf("%s\n", &Estado2);
         printf("%s\n", &Cidade1);
         printf("%s\n", &Cidade2);
         printf("%s\n", &codigo1);
         printf("%s\n", &codigo2);
     
     }
-    return 0;
+    //Menu interativo para o jogador escolher o segundo atributo a ser comparado
+    srand(time(0)); // Inicializa o gerador de números aleatórios
+    printf("Escolha qual atributo deseja comparar (Diferente do primeiro): \n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. Pib\n");
+    printf("4. Pontos Turisticos\n");
+    printf("5. Densidade Populacional\n");
+    printf("6. Pib per Capita\n");
+    scanf("%d", &escolhaJogador2);
+if (escolhaJogador2 == escolhaJogador1){
+    printf("Você escolheu o mesmo atributo-_-\n");
+}else{
+//Impressão da escolha do jogador
+switch (escolhaJogador2) {
+    case 1:
+        printf("Você escolheu: População\n");
+        break;
+    case 2:
+        printf("Você escolheu: Área\n");
+        break;
+    case 3:
+        printf("Você escolheu: Pib\n");
+        break;
+    case 4:
+        printf("Você escolheu: Pontos Turisticos\n");
+        break;
+    case 5:
+        printf("Você escolheu: Densidade Populacional\n");
+        break;
+    case 6:
+        printf("Você escolheu: Pib per Capita\n");
+        break;
+}
+
+switch (escolhaJogador2) {
+    case 1:
+        printf("Cidade 1: População -  ");
+        break;
+    case 2:
+        printf("Cidade 1: Área - ");
+        break;
+    case 3:
+        printf("Cidade 1: Pib - ");
+        break;
+    case 4:
+        printf("Cidade 1: Pontos Turisticos - ");
+        break;
+    case 5:
+        printf("Cidade 1: Densidade Populacional - ");
+        break;
+    case 6:
+        printf("Cidade 1: Pib per Capita - ");
+        break;
+    default:
+        printf("Escolha inválida! Tente novamente.\n");
+}
+
+switch (escolhaJogador2) {
+    case 1:
+        printf("Cidade 2: População\n");
+        break;
+    case 2:
+        printf("Cidade 2: Área\n");
+        break;
+    case 3:
+        printf("Cidade 2: Pib\n");
+        break;
+    case 4:
+        printf("Cidade 2: Pontos Turisticos\n");
+        break;
+    case 5:
+        printf("Cidade 2: Densidade Populacional\n");
+        break;
+    case 6:
+        printf("Cidade 2: Pib per Capita\n");
+        break;
+}
+
+//Impressão dos atributos escolhidos
+
+switch (escolhaJogador2) {
+    case 1:
+        printf("Cidade 1: População - %d\n", populacao1);
+        printf("Cidade 2: População - %d\n", populacao2);
+        break;
+    case 2:
+        printf("Cidade 1: Área - %.2f\n", area1);
+        printf("Cidade 2: Área - %.2f\n", area2);
+        break;
+    case 3:
+        printf("Cidade 1: Pib - %.2f\n", pib1);
+        printf("Cidade 2: Pib - %.2f\n", pib2);
+        break;
+    case 4:
+        printf("Cidade 1: Pontos Turisticos - %d\n", pontos_turisticos1);
+        printf("Cidade 2: Pontos Turisticos - %d\n", pontos_turisticos2);
+        break;
+    case 5:
+        printf("Cidade 1: Densidade Populacional - %f\n", Densidade_Populacional1);
+        printf("Cidade 2: Densidade Populacional - %f\n", Densidade_Populacional2);
+        break;
+    case 6:
+        printf("Cidade 1: Pib per Capita - %f\n", Pib_per_Capita1);
+        printf("Cidade 2: Pib per Capita - %f\n", Pib_per_Capita2);
+        break;
+}
+//Comparação dos atributos escolhidos
+       if ((escolhaJogador2 == 1 && populacao1 > populacao2) || 
+           (escolhaJogador2 == 2 && area1 > area2) || 
+           (escolhaJogador2 == 3 && pib1 > pib2) ||
+           (escolhaJogador2 == 4 && pontos_turisticos1 > pontos_turisticos2) ||
+           (escolhaJogador2 == 5 && Densidade_Populacional1 < Densidade_Populacional2) ||
+           (escolhaJogador2 == 6 && Pib_per_Capita1 > Pib_per_Capita2)) {
+  
+    printf("Parabéns você ganhou!\n");
+    printf("%s\n", &Estado1);
+    printf("%s\n", &Estado2);
+    printf("%s\n", &Cidade1);
+    printf("%s\n", &Cidade2);
+    printf("%s\n", &codigo1);
+    printf("%s\n", &codigo2);
+} else if ((escolhaJogador2 == 1 && populacao1 < populacao2) || 
+           (escolhaJogador2 == 2 && area1 < area2) || 
+           (escolhaJogador2 == 3 && pib1 < pib2) ||
+           (escolhaJogador2 == 4 && pontos_turisticos1 < pontos_turisticos2) ||
+           (escolhaJogador2 == 5 && Densidade_Populacional1 > Densidade_Populacional2) ||
+           (escolhaJogador2 == 6 && Pib_per_Capita1 < Pib_per_Capita2)) {
+    printf("Você perdeu!\n");
+    printf("%s\n", &Estado1);
+    printf("%s\n", &Estado2);
+    printf("%s\n", &Cidade1);
+    printf("%s\n", &Cidade2);
+    printf("%s\n", &codigo1);
+    printf("%s\n", &codigo2);
+} else if ((escolhaJogador2 == 1 && populacao1 == populacao2) || 
+           (escolhaJogador2 == 2 && area1 == area2) || 
+           (escolhaJogador2 == 3 && pib1 == pib2) ||
+           (escolhaJogador2 == 4 && pontos_turisticos1 == pontos_turisticos2) ||
+           (escolhaJogador2 == 5 && Densidade_Populacional1 == Densidade_Populacional2) ||
+           (escolhaJogador2 == 6 && Pib_per_Capita1 == Pib_per_Capita2)) {
+    printf("Empate!\n");
+    printf("%s\n", &Estado1);
+    printf("%s\n", &Estado2);
+    printf("%s\n", &Cidade1);
+    printf("%s\n", &Cidade2);
+    printf("%s\n", &codigo1);
+    printf("%s\n", &codigo2);
+
+//fim do jogo
+printf("Fim do jogo, Obrigado por jogar!!\n");
+return 0;
+}
+}
 }
